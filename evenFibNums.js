@@ -8,8 +8,14 @@
 
 function _sumFibs( maxFibValue ) {
   var sum = 0;
-
-  // do your work here
+for (let i = 0;i<=maxFibValue;i++)  // do your work here
+    {
+      if(i > 0) {
+        if (i%2 == 0) {
+            sum += i;
+        }
+      }
+    }
   return sum;
 }
 
