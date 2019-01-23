@@ -11,19 +11,27 @@ module.exports = function (digits) {
     var palindromeNumber = 0;
 
     // do your work here
-    if (digits == 2) {
-        var number = 0;
-        for (let i = 10; i <= 99; i++) {
-            number = i;
-            if (Math.floor(number / 10) === number % 10) {
-                palindromeNumber = number;
+    var n = 10;
+    var n1 = Math.pow(n,(digits-1));
+    var n2 = Math.pow(n,digits)-1;
+    var number = 0;
+    for (var i = n1; i <= n2; i++) {
+        for (var x = n1; x <= n2; x++) {
+            number = i * x;
+            let str = number.toString();
+            if(str === str.split("").reverse().join("")) {
+                if (number > palindromeNumber) {
+                    factor_0 = i;
+                    factor_1 = x;
+                    palindromeNumber = number;
+                }
             }
         }
     }
+    return {
+        factor_0: factor_0,
+        factor_1: factor_1,
+        palindromeNumber: palindromeNumber
+    }
 }
-return {
-    factor_0: factor_0,
-    factor_1: factor_1,
-    palindromeNumber: palindromeNumber
-};
-};
+
